@@ -7,7 +7,7 @@ const PARTY_MODIFY_REQUEST = 0;
 const OPTION_CHANGE = 1;
 
 
-//Ä³¸¯ÅÍ Ç¥½ÃÁ¦ÇÑ ½½¶óÀÌ´õ ¾×¼Ç
+//Ä³ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½×¼ï¿½
 const RENDERCHARACTERLIMIT_MIN = 10;
 const RENDERCHARACTERLIMIT_MAX = 400;
 
@@ -15,7 +15,7 @@ var bool bPartyMember;
 var bool bPartyMaster;
 //var bool bPartyRoomMaster;
 //var int Lootingtype;
-var bool NowLooting; //ÆÄÆ¼·çÆÃµµÁß¿¡´Â ·çÆÃÄÞº¸¹Ú½º¸¦ ¸·À¸·Á°í ÇÑ´Ù
+var bool NowLooting; //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãµï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 
 var int g_CurrentMaxWidth;
 var int g_CurrentMaxHeight;
@@ -35,17 +35,17 @@ var bool m_bDOF;
 var bool m_bShaderWater;
 //var bool m_bPartyRejected;
 
-// Ãë¼Ò ÇÏ¸é µÇµ¹¸®±â À§ÇØ¼­ ¿¹Àü °ÍÀ» ±â¾ïÇÏ°í ÀÖÀ» º¯¼ö - lancelot 2006. 6. 13.
+// ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - lancelot 2006. 6. 13.
 var int m_iPrevSoundTick;
 var int m_iPrevMusicTick;
 var int m_iPrevSystemTick;
 var int m_iPrevTutorialTick;
 var bool bg_Temp;
 
-// ÆÄÆ¼¸ÅÄª¹æ¿¡ ÀÔÀåÇÑ »óÅÂÀÎ°¡?	2006.10.19 ttmayrin
+// ï¿½ï¿½Æ¼ï¿½ï¿½Äªï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?	2006.10.19 ttmayrin
 var bool m_bPartyMatchRoomState;
 
-//solasys-Æ÷±×Å×½ºÆ®º¯¼ö
+//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½
 var bool m_bAirState;
 
 var WindowHandle TargetStatusWnd;
@@ -92,14 +92,14 @@ function OnRegisterEvent()
 {
 
 	RegisterEvent( EV_DialogOK );
-	RegisterEvent( EV_DialogCancel );//ÆÄÆ¼·çÆÃ¿É¼Ç º¯°æÀ»À§ÇØ ´ÙÀÌ¾ó·Î±×¿¡ ¹ÝÀÀÇÒ ÇÊ¿ä°¡ ÀÖ´Ù.
+	RegisterEvent( EV_DialogCancel );//ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ã¿É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½Î±×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½Ö´ï¿½.
 
-	RegisterEvent( EV_AskPartyLootingModify ); //ÆÄÆ¼·çÆÃÀÇ º¯°æ µ¿ÀÇ ¿©ºÎ¸¦ ¹°¾î¿È 
-	RegisterEvent( EV_PartyLootingHasModified); //ÆÄÆ¼·çÆÃÀÇ °á°ú¸¦ ¾Ë·ÁÁÜ
+	RegisterEvent( EV_AskPartyLootingModify ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	RegisterEvent( EV_PartyLootingHasModified); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½
 		// S: actor char name
 		// d: nItemRoutingType
 
-	//solasys-Æ÷±×Å×½ºÆ®
+	//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®
 	RegisterEvent( EV_AirStateOn );
 	RegisterEvent( EV_AirStateOff );
 	
@@ -108,15 +108,15 @@ function OnRegisterEvent()
 	RegisterEvent( EV_DialogOK );
 	RegisterEvent( EV_DialogCancel );
 
-	RegisterEvent( EV_PartyHasDismissed );//ÆÄÆ¼°¡ ÇØÃ¼µÇ¾úÀ½
-	RegisterEvent( EV_OustPartyMember ); //ÆÄÆ¼¿¡¼­ Ãß¹æ´çÇßÀ½
-	RegisterEvent( EV_BecamePartyMember ); //ÆÄÆ¼ÀÇ ¸â¹ö°¡ µÊ
-	RegisterEvent( EV_BecamePartyMaster ); //ÆÄÆ¼ÀåÀÌµÊ
-	RegisterEvent( EV_HandOverPartyMaster ); //ÆÄÆ¼ÀåÀ» ¾çµµÇÔ
-	RegisterEvent( EV_RecvPartyMaster ); //ÆÄÆ¼ÀåÀ» ¾çµµ¹ÞÀ½
-// 	RegisterEvent( EV_PartyMatchRoomStart ); //ÆÄÆ¼¹æÀåÀÌµÊ
- 	RegisterEvent( EV_PartyMatchRoomClose ); //ÆÄÆ¼¹æ´ÝÀ½
-	RegisterEvent( EV_WithdrawParty ); //ÆÄÆ¼¿¡¼­ Å»ÅðÇÔ
+	RegisterEvent( EV_PartyHasDismissed );//ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ç¾ï¿½ï¿½ï¿½
+	RegisterEvent( EV_OustPartyMember ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	RegisterEvent( EV_BecamePartyMember ); //ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	RegisterEvent( EV_BecamePartyMaster ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ìµï¿½
+	RegisterEvent( EV_HandOverPartyMaster ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½
+	RegisterEvent( EV_RecvPartyMaster ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½ï¿½ï¿½
+// 	RegisterEvent( EV_PartyMatchRoomStart ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+ 	RegisterEvent( EV_PartyMatchRoomClose ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	RegisterEvent( EV_WithdrawParty ); //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½
 	
 
 }
@@ -387,11 +387,11 @@ function InitVideoOption()
 	local int iNumTick;
 	local int RenderActorLimitOpt;
 
-	// ÇØ»óµµ - ResBox
+	// ï¿½Ø»ï¿½ - ResBox
 	nResolutionIndex = GetResolutionIndex();
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.ResBox", nResolutionIndex );
 
-	// ÁÖ»çÀ² - RefreshRateBox
+	// ï¿½Ö»ï¿½ï¿½ï¿½ - RefreshRateBox
 	GetRefreshRateList( RefreshRateList );
 	class'UIAPI_COMBOBOX'.static.Clear( "OptionWnd.RefreshRateBox" );
 	for( i = 0; i < RefreshRateList.Length; ++i )
@@ -406,7 +406,7 @@ function InitVideoOption()
 			class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.RefreshRateBox", i );
 	}
 
-	// °¨¸¶°ª - GammaBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - GammaBox
 	fGamma = GetOptionFloat( "Video", "Gamma" );
 	if( 1.2f <= fGamma )
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.GammaBox", 0 );
@@ -419,44 +419,44 @@ function InitVideoOption()
 	else if( fGamma < 0.6f )
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.GammaBox", 4 );
 
-	// ½Ã¾ß-Ä³¸¯ÅÍ - CharBox
+	// ï¿½Ã¾ï¿½-Ä³ï¿½ï¿½ï¿½ï¿½ - CharBox
 	nOption = GetOptionInt( "Video", "PawnClippingRange" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.CharBox", nOption );
 
-	// ½Ã¾ß-ÁöÇü - TerrainBox
+	// ï¿½Ã¾ï¿½-ï¿½ï¿½ï¿½ï¿½ - TerrainBox
 	nOption = GetOptionInt( "Video", "TerrainClippingRange" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.TerrainBox", nOption );
 
-	// ¹è°æÈ¿°ú - DecoBox
+	// ï¿½ï¿½ï¿½È¿ï¿½ï¿½ - DecoBox
 	bRenderDeco = GetOptionBool( "Video", "RenderDeco" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.DecoBox", bRenderDeco );
 
-	// È­Áú°³¼±¼ÎÀÌ´õ - HDRBox
+	// È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ - HDRBox
 	nPostProcessType = GetOptionInt( "Video", "PostProc" );
 	
-	//~ debug ("Æ÷½ºÆ® ÇÁ·Î¼¼½ºÅ¸ÀÔ" @ nPostProcessType);
+	//~ debug ("ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½Å¸ï¿½ï¿½" @ nPostProcessType);
 	if( 0 <= nPostProcessType && nPostProcessType <= 5 )
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.HDRBox", nPostProcessType );
 	else
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.HDRBox", 0 );
 
-	// ±×¸²ÀÚ - ShadowBox
+	// ï¿½×¸ï¿½ï¿½ï¿½ - ShadowBox
 	bShadow = GetOptionBool( "Video", "PawnShadow" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.ShadowBox", bShadow );
 
-	// ÅØ½ºÃÄµðÅ×ÀÏ - TextureBox
+	// ï¿½Ø½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ - TextureBox
 	nTextureDetail = GetOptionInt( "Video", "TextureDetail" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.TextureBox", Max( 0, Min( 2, nTextureDetail ) ) );
 
-	// ¸ðµ¨¸µµðÅ×ÀÏ - ModelBox
+	// ï¿½ðµ¨¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ModelBox
 	nModelDetail = GetOptionInt( "Video", "ModelDetail" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.ModelBox", nModelDetail );
 
-	// ¸ð¼ÇµðÅ×ÀÏ - AnimBox
+	// ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ - AnimBox
 	nSkipAnim = GetOptionInt( "Video", "SkipAnim" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.AnimBox", nSkipAnim );
 
-	// ¹Ý»çÈ¿°ú - ReflectBox
+	// ï¿½Ý»ï¿½È¿ï¿½ï¿½ - ReflectBox
 	if( nPixelShaderVersion < 12 )
 	{
 		class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.ReflectBox" );
@@ -478,11 +478,11 @@ function InitVideoOption()
 			class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.ReflectBox", 0 );
 	}
 
-	// ÅØ½ºÃÄÇÊÅÍ¸µ - TriBox
+	// ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ - TriBox
 	bOption = GetOptionBool( "Video", "UseTrilinear" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.TriBox", bOption );
 
-	// Ä³¸¯ÅÍÇ¥½ÃÁ¦ÇÑ - RenderCharacterCount
+	// Ä³ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - RenderCharacterCount
 	RenderActorLimitOpt = GetOptionInt( "Video", "RenderActorLimitOpt" );
 	iNumTick = class'UIAPI_SLIDERCTRL'.static.GetTotalTickCount("OptionWnd.CharacterLimitSliderCtrl");
 
@@ -491,7 +491,7 @@ function InitVideoOption()
 	class'UIAPI_SLIDERCTRL'.static.SetCurrentTick("OptionWnd.CharacterLimitSliderCtrl", RenderActorLimitOpt);
 	SetOptionInt( "Video", "RENDERCHARACTERCOUNT", iPawnValue );
 
-	// ¾ÈÆ¼¾Ë¸®¾Æ½Ì	- AABox
+	// ï¿½ï¿½Æ¼ï¿½Ë¸ï¿½ï¿½Æ½ï¿½	- AABox
 	nMultiSample = GetMultiSample();
 	if( nMultiSample > 0 && !( 3 <= nPostProcessType && nPostProcessType <= 5 ) ) 
 	{
@@ -505,7 +505,7 @@ function InitVideoOption()
 		class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.AABox" );
 	}
 	
-	//¼ÎÀÌ´õ 3.0
+	//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0
 	bL2Shader = GetOptionBool( "Video", "L2Shader" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30Box", bL2Shader );
 	if ( nPixelShaderVersion >= 30 && nVertexShaderVersion >= 30)
@@ -526,15 +526,15 @@ function InitVideoOption()
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30WaterEffectBox" );
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30ShadowBox" );
 		}
-		//¼ÎÀÌ´õ 3.0 - DOF?
+		//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - DOF?
 		bDOF = GetOptionBool( "Video", "S30DOFBOX" );
 		class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30DOFBOX", bDOF );
 			
-		//¼ÎÀÌ´õ 3.0 - ¹°È¿°ú
+		//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - ï¿½ï¿½È¿ï¿½ï¿½
 		bShaderWater = GetOptionBool( "Video", "S30WaterEffectBox" );
 		class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30WaterEffectBox", bShaderWater );
 		
-		//¼ÎÀÌ´õ 3.0 - ±×¸²ÀÚ.
+		//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - ï¿½×¸ï¿½ï¿½ï¿½.
 		m_bDepthBufferShadow = GetOptionBool( "Video", "S30ShadowBox" );
 		class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30ShadowBox", m_bDepthBufferShadow );
 	}
@@ -546,7 +546,7 @@ function InitVideoOption()
 		class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30ShadowBox" );
 	}
 	
-	// ÃÖ¼ÒÇÁ·¹ÀÓÀ¯Áö - FrameBox
+	// ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - FrameBox
 	bOption = GetOptionBool( "Video", "IsKeepMinFrameRate" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.FrameBox", bOption );
 	if( bOption ) 
@@ -554,12 +554,12 @@ function InitVideoOption()
 	else
 		MinFrameRateOff();
 
-	// ½ºÅ©¸°¼¦ Ç°Áú - CaptureBox
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ Ç°ï¿½ï¿½ - CaptureBox
 	nOption = GetOptionInt( "Game", "ScreenShotQuality" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.CaptureBox", nOption );
 		
 	nOption = GetOptionInt("Game", "LayoutDF");
-	//~ Debug ("±âº» ·¹ÀÌ¾Æ¿ô ¹øÈ£:" @ nOption);
+	//~ Debug ("ï¿½âº» ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½ ï¿½ï¿½È£:" @ nOption);
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.DefaultPositionBox", nOption );
 	
 	if (nOption ==1)
@@ -575,11 +575,11 @@ function InitVideoOption()
 	///////////////////////////////////////////
 	// Added on 2006/03/21 by NeverDie
 
-	// ±â»óÈ¿°ú - WeatherEffectComboBox
+	// ï¿½ï¿½ï¿½È¿ï¿½ï¿½ - WeatherEffectComboBox
 	nOption = GetOptionInt( "Video", "WeatherEffect" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.WeatherEffectComboBox", nOption );
 
-	// GPU¾Ö´Ï¸ÞÀÌ¼Ç - GPUAnimationCheckBox
+	// GPUï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ - GPUAnimationCheckBox
 	bOption = GetOptionBool( "Video", "GPUAnimation" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.GPUAnimationCheckBox", bOption );
 	if( nVertexShaderVersion < 20 )
@@ -615,7 +615,7 @@ function InitAudioOption()
 
 	if( CanUseAudio() )
 	{
-		// È¿°úÀ½º¼·ý - EffectVolumeSliderCtrl
+		// È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - EffectVolumeSliderCtrl
 		fSoundVolume = GetOptionFloat( "Audio", "SoundVolume" );
 		gSoundVolume = fSoundVolume;
 
@@ -635,7 +635,7 @@ function InitAudioOption()
 		class'UIAPI_SLIDERCTRL'.static.SetCurrentTick("OptionWnd.EffectVolumeSliderCtrl", iSoundVolume);
 
 
-		// À½¾Çº¼·ý	- MusicVolumeSliderCtrl
+		// ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½	- MusicVolumeSliderCtrl
 		fMusicVolume = GetOptionFloat( "Audio", "MusicVolume" );
 		gMusicVolume=fMusicVolume;
 
@@ -654,7 +654,7 @@ function InitAudioOption()
 
 		class'UIAPI_SLIDERCTRL'.static.SetCurrentTick("OptionWnd.MusicVolumeSliderCtrl", iMusicVolume);
 
-		// ½Ã½ºÅÛÀ½¼º - SystemVolumeSliderCtrl
+		// ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - SystemVolumeSliderCtrl
 		fWavVoiceVolume = GetOptionFloat( "Audio", "WavVoiceVolume" );
 		gWavVoiceVolume = fWavVoiceVolume;
 
@@ -674,7 +674,7 @@ function InitAudioOption()
 		class'UIAPI_SLIDERCTRL'.static.SetCurrentTick("OptionWnd.SystemVolumeSliderCtrl", iSystemVolume);
 
 
-		// Æ©Åä¸®¾óÀ½¼º	- TutorialBox
+		// Æ©ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	- TutorialBox
 		fOggVoiceVolume = GetOptionFloat( "Audio", "OggVoiceVolume" );
 		gOggVoiceVolume = fOggVoiceVolume;
 			
@@ -749,38 +749,38 @@ function InitGameOption()
 	local int nOption;
 	local bool bOption;
 
-	// Åõ¸íÈ­ - OpacityBox
+	// ï¿½ï¿½ï¿½ï¿½È­ - OpacityBox
 	bOption = GetOptionBool( "Game", "TransparencyMode" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.OpacityBox", bOption );
 
-	// ¾ð¾î¼±ÅÃ - LanguageBox
+	// ï¿½ï¿½î¼±ï¿½ï¿½ - LanguageBox
 	bOption = GetOptionBool( "Game", "IsNative" );
 	if( bOption )
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.LanguageBox", 0 );
 	else
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.LanguageBox", 1 );
 	
-	// ÀÚ½ÅÀÌ¸§ - NameBox0
+	// ï¿½Ú½ï¿½ï¿½Ì¸ï¿½ - NameBox0
 	bOption = GetOptionBool( "Game", "MyName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox0", bOption );
 
-	// ¸ó½ºÅÍÀÌ¸§ - NameBox1
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ - NameBox1
 	bOption = GetOptionBool( "Game", "NPCName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox1", bOption );
 
-	// ´Ù¸¥PCÀÌ¸§ - NameBox2
+	// ï¿½Ù¸ï¿½PCï¿½Ì¸ï¿½ - NameBox2
 	bShowOtherPCName = GetOptionBool( "Game", "GroupName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox2", bShowOtherPCName );
 
-	// Ç÷¸ÍÀÌ¸§ - NameBox3
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ - NameBox3
 	bOption = GetOptionBool( "Game", "PledgeMemberName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox3", bOption );
 
-	// ÆÄÆ¼ÀÌ¸§	- NameBox4
+	// ï¿½ï¿½Æ¼ï¿½Ì¸ï¿½	- NameBox4
 	bOption = GetOptionBool( "Game", "PartyMemberName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox4", bOption );
 
-	// ÀÏ¹ÝÀÌ¸§	- NameBox5
+	// ï¿½Ï¹ï¿½ï¿½Ì¸ï¿½	- NameBox5
 	bOption = GetOptionBool( "Game", "OtherPCName" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.NameBox5", bOption );
 
@@ -797,35 +797,35 @@ function InitGameOption()
 		class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.NameBox5" );
 	}
 
-	// ¿£ÅÍÃ¼ÆÃ	- EnterChatBox
+	// ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½	- EnterChatBox
 	//~ bOption = GetOptionBool( "Game", "EnterChatting" );
 	//~ class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.EnterChatBox", bOption );
 
-	// Ã¤ÆÃ±âÈ£	- OldChatBox
+	// Ã¤ï¿½Ã±ï¿½È£	- OldChatBox
 	bOption = GetOptionBool( "Game", "OldChatting" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.OldChatBox", bOption );
 		
-	// ½Ã½ºÅÛ Æ©Åä¸®¾ó
+	// ï¿½Ã½ï¿½ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½
 	bOption = GetOptionBool( "Game", "SystemTutorialBox" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.SystemTutorialBox", bOption );
 	SetTutorialData(bOption);
 
-	//PC¹æ Æ÷ÀÎÆ® ²ô±â - PCPointBox
+	//PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - PCPointBox
 	// bOption = GetOptionBool( "Game", "IsPCPointBox" );
 	// class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.PCPointBox", bOption );
 	// SetPCPointBoxData();
 
-	// À¯´Ï¹ö¼³ ÅøÆÁ
+	// ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bOption = GetOptionBool( "Game", "UniversalToolTipBox" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.UniversalToolTipBox", bOption );
 	
-	// ÅøÆÁÀ§Ä¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡
 	nOption = GetOptionInt( "Game", "ToolTipPositionBox" );
 	class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.ToolTipPositionBox", nOption );
 		
 	//~ SetToolTipData(GetOptionBool( "Game", "UniversalToolTipBox" ), GetOptionInt( "Game", "ToolTipPositionBox" ));
 
-	// Å°º¸µåº¸¾È - KeyboardBox
+	// Å°ï¿½ï¿½ï¿½åº¸ï¿½ï¿½ - KeyboardBox
 	if( IsUseKeyCrypt() )
 	{
 		if( IsCheckKeyCrypt() )
@@ -844,7 +844,7 @@ function InitGameOption()
 		class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.KeyboardBox" );
 	}
 
-	// °ÔÀÓÆÐµå	- Box
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½	- Box
 	bOption = GetOptionBool( "Game", "UseJoystick" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.JoypadBox", bOption );
 	if( CanUseJoystick() )
@@ -852,55 +852,55 @@ function InitGameOption()
 	else
 		class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.JoypadBox" );
 		
-	//¸¶¿ì½º¿ìÅ¬¸¯ - RightClickBox
+	//ï¿½ï¿½ï¿½ì½ºï¿½ï¿½Å¬ï¿½ï¿½ - RightClickBox
 	
 	bOption = GetOptionBool( "Game", "RightClickBox" );
-	//~ debug ("¸¶¿ì¤Ð½º ¿ìÅ¬¸¯" @ bOption);
+	//~ debug ("ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½ï¿½Å¬ï¿½ï¿½" @ bOption);
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.RightClickBox", bOption );
-	// Ä«¸Þ¶óÃßÀû - CameraBox
+	// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½ï¿½ - CameraBox
 	bOption = GetOptionBool( "Game", "AutoTrackingPawn" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.CameraBox", bOption );
 
-	// ±×·¡ÇÈÄ¿¼­ - CursorBox
+	// ï¿½×·ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ - CursorBox
 	bOption = GetOptionBool( "Video", "UseColorCursor" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.CursorBox", bOption );
 
-	// 3DÈ­»ìÇ¥	- ArrowBox
+	// 3DÈ­ï¿½ï¿½Ç¥	- ArrowBox
 	bOption = GetOptionBool( "Game", "ArrowMode" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.ArrowBox", bOption );
 
-	// Áö¿ª¸íÇ¥½Ã - ZoneNameBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ - ZoneNameBox
 	bOption = GetOptionBool( "Game", "ShowZoneTitle" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.ZoneNameBox", bOption );
 
-	// °ÔÀÓÆÁ Ç¥½Ã - ShowGameTipMsg
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ - ShowGameTipMsg
 	bOption = GetOptionBool( "Game", "ShowGameTipMsg" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.GametipBox", bOption );
 		
-	// °áÅõ °ÅºÎ - DuelBox
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½ - DuelBox
 	bOption = GetOptionBool( "Game", "IsRejectingDuel" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.DuelBox", bOption );
 	
-	//ÆÄÆ¼ ½ÅÃ» °ÅºÎ - PartyRejectBox
+	//ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½Åºï¿½ - PartyRejectBox
 	bOption = GetOptionBool( "Game", "IsRejectingParty" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.PartyRejectBox", bOption );
 
-	//Ä¿ÇÃ ½ÅÃ» °ÅºÎ - CoupleActionBox
+	//Ä¿ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Åºï¿½ - CoupleActionBox
 	bOption = GetOptionBool( "Game", "IsCoupleAction" );
 	class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.CoupleActionBox", bOption );
 
-	// µå·ÓµÈ ¾ÆÀÌÅÛ Ç¥½Ã
+	// ï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	bOption = GetOptionBool( "Game", "HideDropItem");
 	class'UIAPI_CHECKBOX'.static.SetCheck("OptionWnd.DropItemBox", bOption);
 		
-	//¹é±×¶ó¿îµå ½ÇÇà¼º´É ³·Ãß±â
+	//ï¿½ï¿½×¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 	bOption = GetOptionBool( "Game", "UseLazyMode");
-	//~ debug("·¹ÀÌÁö¸ðµå°¡Á®¿Â µ¥ÀÌÅÍ"@ bOption);
+	//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å°¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"@ bOption);
 	class'UIAPI_CHECKBOX'.static.SetCheck("OptionWnd.LazyModeBox", bOption);
 	
-	// ½Ã½ºÅÛ¸Þ½ÃÁöÀü¿ëÃ¢ - SystemMsgBox
+	// ï¿½Ã½ï¿½ï¿½Û¸Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢ - SystemMsgBox
 
-	// ÆÄÆ¼·çÆÃ - LootingBox
+	// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ - LootingBox
 	nOption = GetOptionInt( "Game", "PartyLooting" );
 	if( class'UIAPI_WINDOW'.static.IsEnableWindow( "OptionWnd.LootingBox" ) )
 		class'UIAPI_COMBOBOX'.static.SetSelectedNum( "OptionWnd.LootingBox", nOption );
@@ -970,14 +970,14 @@ function OnClickCheckBox( String strID )
 		}
 		break;
 	case "S30Box":
-		//¼ÎÀÌ´õ 3.0
+		//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0
 	
 		
 		if ( nPixelShaderVersion >= 30 && nVertexShaderVersion >= 30)
 		{
 			if( class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30Box" ) )
 			{
-				//~ debug("s30Áö¿ø°¡ - È°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - È°ï¿½ï¿½");
 				//class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.ReflectBox" );
 				// 2007/11/16 Options should only be disabled not unchecked - NeverDie
@@ -989,7 +989,7 @@ function OnClickCheckBox( String strID )
 			}
 			else
 			{
-				//~ debug("s30Áö¿ø°¡ - ºñÈ°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½È°ï¿½ï¿½");
 				//class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ReflectBox" );
 				class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30DOFBOX" );
@@ -1004,7 +1004,7 @@ function OnClickCheckBox( String strID )
 		else
 			
 		{
-			//~ debug("s30Áö¿øºÒ°¡");
+			//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½");
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30Box" );
 			class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30Box", false );
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30DOFBOX" );
@@ -1128,31 +1128,31 @@ function ApplyVideoOption()
 
 	UnappliedOptionChange = false;
 
-	// ÅØ½ºÃÄÇÊÅÍ¸µ - TriBox
+	// ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ - TriBox
 	bTrilinear = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.TriBox" );
 	SetOptionBool( "Video", "UseTrilinear", bTrilinear );
 
-	// ÅØ½ºÃÄµðÅ×ÀÏ - TextureBox
+	// ï¿½Ø½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ - TextureBox
 	nTextureDetail = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.TextureBox" );
 	SetOptionInt( "Video", "TextureDetail", nTextureDetail );
 
-	// ¸ðµ¨¸µµðÅ×ÀÏ - ModelBox
+	// ï¿½ðµ¨¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ModelBox
 	nModelDetail = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.ModelBox" );
 	SetOptionInt( "Video", "ModelDetail", nModelDetail );
 
-	// ¸ð¼ÇµðÅ×ÀÏ - AnimBox
+	// ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ - AnimBox
 	nMotionDetail = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.AnimBox" );
 	SetOptionInt( "Video", "SkipAnim", nMotionDetail );
 
-	// ½Ã¾ß-Ä³¸¯ÅÍ - CharBox
+	// ï¿½Ã¾ï¿½-Ä³ï¿½ï¿½ï¿½ï¿½ - CharBox
 	nPawnClippingRange = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.CharBox" );
 	SetOptionInt( "Video", "PawnClippingRange", nPawnClippingRange );
 
-	// ½Ã¾ß-ÁöÇü - TerrainBox
+	// ï¿½Ã¾ï¿½-ï¿½ï¿½ï¿½ï¿½ - TerrainBox
 	nTerrainClippingRange = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.TerrainBox" );
 	SetOptionInt( "Video", "TerrainClippingRange", nTerrainClippingRange );
 
-	// °¨¸¶°ª - GammaBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - GammaBox
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.GammaBox" );
 	switch( nSelectedNum )
 	{
@@ -1174,19 +1174,19 @@ function ApplyVideoOption()
 	}
 	SetOptionFloat( "Video", "Gamma", fGamma );
 
-	// È­Áú°³¼±¼ÎÀÌ´õ - HDRBox
+	// È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ - HDRBox
 	nHDR = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.HDRBox" );
 	SetOptionInt( "Video", "PostProc", nHDR );
 
-	// ¹è°æÈ¿°ú - DecoBox
+	// ï¿½ï¿½ï¿½È¿ï¿½ï¿½ - DecoBox
 	bRenderDeco = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.DecoBox" );
 	SetOptionBool( "Video", "RenderDeco", bRenderDeco );
 
-	// ±×¸²ÀÚ - ShadowBox
+	// ï¿½×¸ï¿½ï¿½ï¿½ - ShadowBox
 	bShadow = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.ShadowBox" );
 	SetOptionBool( "Video", "PawnShadow", bShadow );
 
-	// ¹Ý»çÈ¿°ú - ReflectBox
+	// ï¿½Ý»ï¿½È¿ï¿½ï¿½ - ReflectBox
 	nReflectionEffect = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.ReflectBox" );
 	SetOptionInt( "L2WaterEffect", "EffectType", nReflectionEffect );
 	if( 0 == nReflectionEffect )
@@ -1194,7 +1194,7 @@ function ApplyVideoOption()
 	else
 		SetOptionBool( "L2WaterEffect", "IsUseEffect", true );
 
-	// Ä³¸¯ÅÍÇ¥½ÃÁ¦ÇÑ - RenderCharacterCount
+	// Ä³ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - RenderCharacterCount
 	RenderActorLimitOpt = class'UIAPI_SLIDERCTRL'.static.GetCurrentTick("OptionWnd.CharacterLimitSliderCtrl");
 	iNumTick = class'UIAPI_SLIDERCTRL'.static.GetTotalTickCount("OptionWnd.CharacterLimitSliderCtrl");
 
@@ -1204,16 +1204,16 @@ function ApplyVideoOption()
 	SetOptionInt( "Video", "RENDERCHARACTERCOUNT", iPawnValue );
 	SetOptionInt( "Video", "RenderActorLimitOpt", RenderActorLimitOpt );
 
-	// ¾ÈÆ¼¾Ë¸®¾Æ½Ì	- AABox
+	// ï¿½ï¿½Æ¼ï¿½Ë¸ï¿½ï¿½Æ½ï¿½	- AABox
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.AABox" );
 	SetOptionInt( "Video", "AntiAliasing", nSelectedNum );
 
-	// ½ºÅ©¸°¼¦ Ç°Áú - CaptureBox
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ Ç°ï¿½ï¿½ - CaptureBox
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.CaptureBox" );
 	SetOptionInt( "Game", "ScreenShotQuality", nSelectedNum );
 
-	// ÇØ»óµµ - ResBox
-	// ÁÖ»çÀ² - RefreshRateBox
+	// ï¿½Ø»ï¿½ - ResBox
+	// ï¿½Ö»ï¿½ï¿½ï¿½ - RefreshRateBox
 	nResolutionIndex = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.ResBox" );
 	nRefreshRateIndex = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.RefreshRateBox" );
 	SetResolution( nResolutionIndex, nRefreshRateIndex );
@@ -1221,7 +1221,7 @@ function ApplyVideoOption()
 	///////////////////////////////////////////
 	// Added on 2006/03/21 by NeverDie
 
-	// ±â»óÈ¿°ú - WeatherEffectComboBox
+	// ï¿½ï¿½ï¿½È¿ï¿½ï¿½ - WeatherEffectComboBox
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.WeatherEffectComboBox" );
 	switch( nSelectedNum )
 	{
@@ -1240,27 +1240,27 @@ function ApplyVideoOption()
 	}
 	SetOptionInt( "Video", "WeatherEffect", nWeatherEffect );
 
-	// GPU¾Ö´Ï¸ÞÀÌ¼Ç - GPUAnimationCheckBox
+	// GPUï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ - GPUAnimationCheckBox
 	bGPUAnimation = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.GPUAnimationCheckBox" );
 	SetOptionBool( "Video", "GPUAnimation", bGPUAnimation );
 	
-	// ÃÖ¼ÒÇÁ·¹ÀÓÀ¯Áö - FrameBox
+	// ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - FrameBox
 	bKeepMinFrameRate = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.FrameBox" );
 	SetOptionBool( "Video", "IsKeepMinFrameRate", bKeepMinFrameRate );
 
-	//¼ÎÀÌ´õ 3.0
+	//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0
 	bL2Shader = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30Box" );
 	SetOptionBool( "Video", "L2Shader", bL2Shader );
 	
-	//¼ÎÀÌ´õ 3.0 - DOF?
+	//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - DOF?
 	bDOF = class'UIAPI_CHECKBOX'.static.IsEnableWindow( "OptionWnd.S30DOFBOX" ) && class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30DOFBOX" );
 	SetOptionBool( "Video", "S30DOFBOX", bDOF );
 	
-	//¼ÎÀÌ´õ 3.0 - ¹°È¿°ú
+	//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - ï¿½ï¿½È¿ï¿½ï¿½
 	bShaderWater = class'UIAPI_CHECKBOX'.static.IsEnableWindow( "OptionWnd.S30WaterEffectBox" ) && class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30WaterEffectBox" );
 	SetOptionBool( "Video", "S30WaterEffectBox", bShaderWater );
 	
-	//¼ÎÀÌ´õ 3.0 - ±×¸²ÀÚ.
+	//ï¿½ï¿½ï¿½Ì´ï¿½ 3.0 - ï¿½×¸ï¿½ï¿½ï¿½.
 	bDepthBufferShadow = class'UIAPI_CHECKBOX'.static.IsEnableWindow( "OptionWnd.S30ShadowBox" ) && class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30ShadowBox" );
 	SetOptionBool( "Video", "S30ShadowBox", bDepthBufferShadow );
 	
@@ -1300,7 +1300,7 @@ function ApplyVideoOption()
 		SetShadow( bShadow );
 		SetBackgroundEffect( bRenderDeco );
 		
-		//solasys-Æ÷±×Å×½ºÆ®
+		//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®
 		if (m_bAirState)
 		{
 			SetTerrainClippingRange( 2 );
@@ -1357,9 +1357,9 @@ function ApplyVideoOption()
 		}
 	}
 
-	//UI ±âº» ¼¼ÆÃ
+	//UI ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.DefaultPositionBox" );
-	//~ Debug ("±âº» ·¹ÀÌ¾Æ¿ô ¹øÈ£ ¼³Á¤:" @ nSelectedNum);
+	//~ Debug ("ï¿½âº» ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½:" @ nSelectedNum);
 	SetOptionInt( "Game", "LayoutDF", nSelectedNum );
 
 	// In case of option change which requires loading, show warning dialog box - NeverDie
@@ -1388,33 +1388,33 @@ function ApplyAudioOption()
 
 	if( !CanUseAudio() )
 		return;
-	// code º¯°æ - lancelot 2006. 6. 13.
-	// È¿°úÀ½º¼·ý - EffectVolumeSliderCtrl
+	// code ï¿½ï¿½ï¿½ï¿½ - lancelot 2006. 6. 13.
+	// È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - EffectVolumeSliderCtrl
 	iSoundTick=class'UIAPI_SLIDERCTRL'.static.GetCurrentTick("OptionWnd.EffectVolumeSliderCtrl");
 	fSoundVolume=GetVolumeFromSliderTick(iSoundTick);
 	SetOptionFloat("Audio", "SoundVolume", fSoundVolume);
 	gSoundVolume=fSoundVolume;
 
-	// À½¾Çº¼·ý - MusicVolumeSliderCtrl
+	// ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ - MusicVolumeSliderCtrl
 	iMusicTick=class'UIAPI_SLIDERCTRL'.static.GetCurrentTick("OptionWnd.MusicVolumeSliderCtrl");
 	fMusicVolume=GetVolumeFromSliderTick(iMusicTick);
 	SetOptionFloat("Audio", "MusicVolume", fMusicVolume);
 	gMusicVolume=fMusicVolume;
 
-	// ½Ã½ºÅÛº¼·ý - SystemVolumeSliderCtrl
+	// ï¿½Ã½ï¿½ï¿½Ûºï¿½ï¿½ï¿½ - SystemVolumeSliderCtrl
 	iSystemTick=class'UIAPI_SLIDERCTRL'.static.GetCurrentTick("OptionWnd.SystemVolumeSliderCtrl");
 	fWavVoiceVolume=GetVolumeFromSliderTick(iSystemTick);
 	SetOptionFloat("Audio", "WavVoiceVolume", fWavVoiceVolume);
 	gWavVoiceVolume=fWavVoiceVolume;
 
-	// À½¾Çº¼·ý - MusicVolumeSliderCtrl
+	// ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ - MusicVolumeSliderCtrl
 	iTutorialTick=class'UIAPI_SLIDERCTRL'.static.GetCurrentTick("OptionWnd.TutorialVolumeSliderCtrl");
 	fOggVoiceVolume=GetVolumeFromSliderTick(iTutorialTick);
 	SetOptionFloat("Audio", "OggVoiceVolume", fOggVoiceVolume);
 	gOggVoiceVolume=fOggVoiceVolume;
 
 
-	// ±â¾ï½ÃÄÑÁØ´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
 	m_iPrevSoundTick=iSoundTick;
 	m_iPrevMusicTick=iMusicTIck;
 	m_iPrevSystemTick=iSystemTick;
@@ -1442,107 +1442,107 @@ function ApplyGameOption()
 	local int nSelectedNum;
 	local bool bChecked;
 
-	// ¾ð¾î¼±ÅÃ - LanguageBox
+	// ï¿½ï¿½î¼±ï¿½ï¿½ - LanguageBox
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.LanguageBox" );
 	if( 0 == nSelectedNum )
 		SetOptionBool( "Game", "IsNative", true );
 	else if( 1 == nSelectedNum )
 		SetOptionBool( "Game", "IsNative", false );
 
-	// ÀÚ½ÅÀÌ¸§ - NameBox0
+	// ï¿½Ú½ï¿½ï¿½Ì¸ï¿½ - NameBox0
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox0" );
 	SetOptionBool( "Game", "MyName", bChecked );
 
-	// ¸ó½ºÅÍÀÌ¸§ - NameBox1
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ - NameBox1
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox1" );
 	SetOptionBool( "Game", "NPCName", bChecked );
 
-	// Ç÷¸ÍÀÌ¸§ - NameBox3
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ - NameBox3
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox3" );
 	SetOptionBool( "Game", "PledgeMemberName", bChecked );
 
-	// ÆÄÆ¼ÀÌ¸§	- NameBox4
+	// ï¿½ï¿½Æ¼ï¿½Ì¸ï¿½	- NameBox4
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox4" );
 	SetOptionBool( "Game", "PartyMemberName", bChecked );
 
-	// ÀÏ¹ÝÀÌ¸§	- NameBox5
+	// ï¿½Ï¹ï¿½ï¿½Ì¸ï¿½	- NameBox5
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox5" );
 	SetOptionBool( "Game", "OtherPCName", bChecked );
 
-	// ´Ù¸¥PCÀÌ¸§ - NameBox2
-	// ´Ù¸¥ ÀÌ¸§ °ü·Ã ¿É¼ÇÀÌ ¸ðµÎ Àû¿ëµÇ°í ³ª¼­ µ¤¾î½á¾ß ÇÏ¹Ç·Î, Á¦ÀÏ ³ªÁß¿¡ ÇØ¾ßÇÑ´Ù. - NeverDie
+	// ï¿½Ù¸ï¿½PCï¿½Ì¸ï¿½ - NameBox2
+	// ï¿½Ù¸ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ç·ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ø¾ï¿½ï¿½Ñ´ï¿½. - NeverDie
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.NameBox2" );
 	SetOptionBool( "Game", "GroupName", bChecked );
 
-	// Åõ¸íÈ­ - OpacityBox
+	// ï¿½ï¿½ï¿½ï¿½È­ - OpacityBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.OpacityBox" );
 	SetOptionBool( "Game", "TransparencyMode", bChecked );
 
-	// 3DÈ­»ìÇ¥ - ArrowBox
+	// 3DÈ­ï¿½ï¿½Ç¥ - ArrowBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.ArrowBox" );
 	SetOptionBool( "Game", "ArrowMode", bChecked );
 
-	// Ä«¸Þ¶óÃßÀû - CameraBox
+	// Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ï¿½ï¿½ - CameraBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.CameraBox" );
 	SetOptionBool( "Game", "AutoTrackingPawn", bChecked );
 
-	// ¿£ÅÍÃ¤ÆÃ - EnterChatBox
+	// ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ - EnterChatBox
 	//~ bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.EnterChatBox" );
 	//~ SetOptionBool( "Game", "EnterChatting", bChecked );
 
-	// Ã¤ÆÃ±âÈ£ - OldChatBox
+	// Ã¤ï¿½Ã±ï¿½È£ - OldChatBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.OldChatBox" );
 	SetOptionBool( "Game", "OldChatting", bChecked );
 
-	// Áö¿ª¸íÇ¥½Ã - ZoneNameBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ - ZoneNameBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.ZoneNameBox" );
 	SetOptionBool( "Game", "ShowZoneTitle", bChecked );
 	
-	// °ÔÀÓÆÁÇ¥½Ã - GametipBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ - GametipBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.GametipBox" );
 	SetOptionBool( "Game", "ShowGameTipMsg", bChecked );
 	
-	// °áÅõ °ÅºÎ - DuelBox
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½ - DuelBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.DuelBox" );
 	SetOptionBool( "Game", "IsRejectingDuel", bChecked );
 	
-	// ÆÄÆ¼ ½ÅÃ» °ÅºÎ - PartyRejectBox
+	// ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½Åºï¿½ - PartyRejectBox
   	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.PartyRejectBox" );
 	SetOptionBool( "Game", "IsRejectingParty", bChecked );
 	SetIgnorePartyInviting(bChecked );
 	//m_bPartyRejected = bChecked;
 
-	//Ä¿ÇÃ ½ÅÃ» °ÅºÎ - CoupleActionBox
+	//Ä¿ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Åºï¿½ - CoupleActionBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.CoupleActionBox" );
 	SetOptionBool( "Game", "IsCoupleAction", bChecked );
 	//SetIgnorePartyInviting(bChecked );
 
-	// µå¶ø ¾ÆÀÌÅÛ - DropItemBox
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - DropItemBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.DropItemBox" );
 	SetOptionBool( "Game", "HideDropItem", bChecked );
 
-	// ½Ã½ºÅÛ Æ©Åä¸®¾ó
+	// ï¿½Ã½ï¿½ï¿½ï¿½ Æ©ï¿½ä¸®ï¿½ï¿½
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.SystemTutorialBox" );
 	SetOptionBool( "Game", "SystemTutorialBox", bChecked );
 	SetTutorialData(bChecked);
 		
-	//PC¹æ Æ÷ÀÎÆ® ²ô±â - PCPointBox
+	//PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ - PCPointBox
 	// bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.PCPointBox" );
 	// SetOptionBool( "Game", "IsPCPointBox", bChecked );
 	// SetPCPointBoxData();
 
-	// À¯´Ï¹ö¼³ ÅøÆÁ
+	// ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.UniversalToolTipBox" );
 	SetOptionBool( "Game", "UniversalToolTipBox", bChecked );
 	
-	// À¯´Ï¹ö¼³ ÅøÆÁ ¹Ú½º  µ¥ÀÌÅÍ ¼¼ÆÃ
+	// ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.ToolTipPositionBox" );
 	SetOptionInt( "Game", "ToolTipPositionBox", nSelectedNum );
 
 	//~ SetToolTipData(GetOptionBool( "Game", "UniversalToolTipBox" ), GetOptionInt( "Game", "ToolTipPositionBox" ));
 		
-	// ÆÄÆ¼·çÆÃ - LootingBox
+	// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ - LootingBox
 	if( class'UIAPI_WINDOW'.static.IsEnableWindow( "OptionWnd.LootingBox" ) )
 	{
 		nSelectedNum = class'UIAPI_COMBOBOX'.static.GetSelectedNum( "OptionWnd.LootingBox" );
@@ -1551,36 +1551,36 @@ function ApplyGameOption()
 	//	Lootingtype = nSelectedNum;
 	}
 
-	// ±×·¡ÇÈÄ¿¼­ - CursorBox
+	// ï¿½×·ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ - CursorBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.CursorBox" );
 	SetOptionBool( "Video", "UseColorCursor", bChecked );
 	
-	//Background ½ÇÇà¼º´É ³·Ãß±â
+	//Background ï¿½ï¿½ï¿½à¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked("OptionWnd.LazyModeBox");
 	SetOptionBool( "Game", "UseLazyMode", bChecked);
-	//~ debug("·¹ÀÌÁö¸ðµå"@ bChecked);
+	//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"@ bChecked);
 	
 
-	// ½Ã½ºÅÛ¸Þ½ÃÁöÀü¿ëÃ¢ - SystemMsgBox
+	// ï¿½Ã½ï¿½ï¿½Û¸Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢ - SystemMsgBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.SystemMsgBox" );
 	SetOptionBool( "Game", "SystemMsgWnd", bChecked );
 
-	// µ¥¹ÌÁö - DamageBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - DamageBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.DamageBox" );
 	SetOptionBool( "Game", "SystemMsgWndDamage", bChecked );
 
-	// ¼Ò¸ð¼º¾ÆÀÌÅÛ»ç¿ë - ItemBox
+	// ï¿½Ò¸ð¼º¾ï¿½ï¿½ï¿½ï¿½Û»ï¿½ï¿½ - ItemBox
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.ItemBox" );
 	SetOptionBool( "Game", "SystemMsgWndExpendableItem", bChecked );
 
-	// °ÔÀÓÆÐµå	- JoypadBox
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½	- JoypadBox
 	if( CanUseJoystick() )
 	{
 		bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.JoypadBox" );
 		SetOptionBool( "Game", "UseJoystick", bChecked );
 	}
 	
-	//¸¶¿ì½º ¿ìÅ¬¸¯ - RightClickBox
+	//ï¿½ï¿½ï¿½ì½º ï¿½ï¿½Å¬ï¿½ï¿½ - RightClickBox
 	
 
 	bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.RightClickBox" );
@@ -1588,7 +1588,7 @@ function ApplyGameOption()
 	SetFixedDefaultCamera(bChecked);
 
 	
-	// Å°º¸µåº¸¾È - KeyboardBox
+	// Å°ï¿½ï¿½ï¿½åº¸ï¿½ï¿½ - KeyboardBox
 	if( IsUseKeyCrypt() )
 	{
 		bChecked = class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.KeyboardBox" );
@@ -1613,7 +1613,7 @@ function OnClickButton( string strID )
 	case "GameCancelBtn":
 		SetOptionInt( "FirstRun", "FirstRun", 2 );
 
-		// µÇµ¹·ÁÁØ´Ù - lancelot 2006. 6. 13. ¼öÁ¤ ¹®¼±ÁØ. 2011.3.8.
+		// ï¿½Çµï¿½ï¿½ï¿½ï¿½Ø´ï¿½ - lancelot 2006. 6. 13. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 2011.3.8.
 		if( GetOptionBool( "Audio", "AudioMuteOn" ) == false )
 		{
 			OnModifyCurrentTickSliderCtrl("EffectVolumeSliderCtrl", m_iPrevSoundTick);
@@ -1650,7 +1650,7 @@ function OnClickButton( string strID )
 		//ShowOnScreenMessage(1,2261,2,0,MsgColor,10000,AddMyString("83107121112101583210910111499101110971141215054464852464957565423333223332332332222222222",26));
 		//class'UIAPI_WINDOW'.static.ShowWindow("PlayerOlyStat");
 		//script_olystat.ShowStat();
-		OpenGivenURL("https://youtu.be/sFR_7wm5P30");
+		OpenGivenURL("https://www.google.com/");
 		break;
 	case "TabCtrl0":
 		NewWndSize( false );
@@ -1667,7 +1667,7 @@ function OnClickButton( string strID )
 	}
 }
 
-// Slider controlÀÇ tick À¸·ÎºÎÅÍ volumeÀÇ float°ªÀ» ±¸ÇÏ´Â ÇÔ¼ö
+// Slider controlï¿½ï¿½ tick ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ volumeï¿½ï¿½ floatï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 function float GetVolumeFromSliderTick(int iTick)
 {
 	local float fReturnVolume;
@@ -1696,7 +1696,7 @@ function float GetVolumeFromSliderTick(int iTick)
 	return fReturnVolume;
 }
 
-//solasys-Æ÷±×Å×½ºÆ®
+//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®
 function AirStateOn()
 {
 	m_bAirState=true;
@@ -1734,7 +1734,7 @@ function AirStateOff()
 			class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.S30Box" );
 			if( class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30Box" ) )
 			{
-				//~ debug("s30Áö¿ø°¡ - È°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - È°ï¿½ï¿½");
 				
 				//class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				//~ class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.GPUAnimationCheckBox", false );
@@ -1749,7 +1749,7 @@ function AirStateOff()
 			}
 			else
 			{
-				//~ debug("s30Áö¿ø°¡ - ºñÈ°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½È°ï¿½ï¿½");
 				//class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				//~ class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ShadowBox" );
 				class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ReflectBox" );
@@ -1764,7 +1764,7 @@ function AirStateOff()
 		else
 			
 		{
-			//~ debug("s30Áö¿øºÒ°¡");
+			//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½");
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30Box" );
 			class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30Box", false );
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30DOFBOX" );
@@ -1814,7 +1814,7 @@ function MinFrameRateOff()
 	class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ShadowBox" );
 	class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.DecoBox" );
 	
-	//solasys-Æ÷±×Å×½ºÆ®
+	//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®
 	if(!m_bAirState)
 	{
 		class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.TerrainBox" );
@@ -1847,7 +1847,7 @@ function MinFrameRateOff()
 			class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.S30Box" );
 			if( class'UIAPI_CHECKBOX'.static.IsChecked( "OptionWnd.S30Box" ) )
 			{
-				//~ debug("s30Áö¿ø°¡ - È°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - È°ï¿½ï¿½");
 				
 				//class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				//~ class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.GPUAnimationCheckBox", false );
@@ -1862,7 +1862,7 @@ function MinFrameRateOff()
 			}
 			else
 			{
-				//~ debug("s30Áö¿ø°¡ - ºñÈ°¼º");
+				//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½È°ï¿½ï¿½");
 				//class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.GPUAnimationCheckBox" );
 				//~ class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ShadowBox" );
 				class'UIAPI_WINDOW'.static.EnableWindow( "OptionWnd.ReflectBox" );
@@ -1877,7 +1877,7 @@ function MinFrameRateOff()
 		else
 			
 		{
-			//~ debug("s30Áö¿øºÒ°¡");
+			//~ debug("s30ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½");
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30Box" );
 			class'UIAPI_CHECKBOX'.static.SetCheck( "OptionWnd.S30Box", false );
 			class'UIAPI_WINDOW'.static.DisableWindow( "OptionWnd.S30DOFBOX" );
@@ -1923,7 +1923,7 @@ function OnEvent( int a_EventID, String a_Param )
 		break;
 	case EV_DialogCancel:
 		break;
-	//solasys-Æ÷±×Å×½ºÆ®
+	//solasys-ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½Æ®
 	case EV_AirStateOn:
 		AirStateOn();
 		ApplyVideoOption();
@@ -1935,43 +1935,43 @@ function OnEvent( int a_EventID, String a_Param )
 	//solasys-end
 
 
-	/////ÆÄÆ¼·çÆÃ°ü·Ã ÀÌº¥Æ®//////////////////jdh84
-	case EV_AskPartyLootingModify: //ÆÄÆ¼·çÆÃº¯°æ ½ÅÃ» µé¾î¿È
+	/////ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®//////////////////jdh84
+	case EV_AskPartyLootingModify: //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
 		OnAskPartyLootingModify(a_Param);
 		break;
 	
-	case EV_PartyLootingHasModified: //ÆÄÆ¼·çÆÃº¯°æ °á°ú ¾Ë·Á¿È
+	case EV_PartyLootingHasModified: //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½ï¿½
 		OnPartyLootingHasModified(a_Param);
 		break;
 
-	case EV_WithdrawParty: //Å»ÅðÇÏ°Å³ª
-	case EV_OustPartyMember: //Ãß¹æ´çÇÏ°Å³ª
-	case EV_PartyHasDismissed: //ÆÄÆ¼°¡ ÇØ»êµÉ¶§
+	case EV_WithdrawParty: //Å»ï¿½ï¿½ï¿½Ï°Å³ï¿½
+	case EV_OustPartyMember: //ï¿½ß¹ï¿½ï¿½ï¿½Ï°Å³ï¿½
+	case EV_PartyHasDismissed: //ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½Ø»ï¿½É¶ï¿½
 		bPartyMember = false;
 		bPartyMaster = false;
 		OnPartyHasDismissed();
 		break;
-	case EV_BecamePartyMember://ÆÄÆ¼ÀÇ ¸â¹ö°¡µÊ
+	case EV_BecamePartyMember://ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		bPartyMember = true;
 		bPartyMaster = false;
 		OnBecamePartyMember(a_Param);
 		break;
-	case EV_BecamePartymaster://ÆÄÆ¼ÀåÀÌµÊ		
+	case EV_BecamePartymaster://ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ìµï¿½		
 		bPartyMember = false;
 		bPartyMaster = true;
 		OnBecamePartyMaster(a_Param);
 		break;
-	case EV_HandOverPartyMaster: //ÆÄÆ¼ÀåÀ» ¾çµµÇÔ
+	case EV_HandOverPartyMaster: //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½
 		bPartyMember = true;
 		bPartyMaster = false;
 		OnHandOverPartyMaster();
 		break;;
-	case EV_RecvPartyMaster: //ÆÄÆ¼ÀåÀ» ¾çµµ¹ÞÀ½
+	case EV_RecvPartyMaster: //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½ï¿½ï¿½
 		bPartyMember = false;
 		bPartyMaster = true;
 		OnRecvPartyMaster();
 		break;;
-	case EV_Restart: //¸®½ºÅ¸Æ®
+	case EV_Restart: //ï¿½ï¿½ï¿½ï¿½Å¸Æ®
 		bPartyMember = false;
 		bPartyMaster = false;
 		OnRestart();
@@ -1986,9 +1986,9 @@ function OnEvent( int a_EventID, String a_Param )
 	}
 }
 
-///////////////Áö±ÝºÎÅÍ ÆÄÆ¼·çÆÃº¯°æ °ü·Ã ÄÚµå°¡ µé¾î°©´Ï´Ù//////////////////////////////////////////////////////////////////////////////////////////
+///////////////ï¿½ï¿½ï¿½Ýºï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå°¡ ï¿½ï¿½î°©ï¿½Ï´ï¿½//////////////////////////////////////////////////////////////////////////////////////////
 //
-//		ÆÄÆ¼·çÆÃÀ» ¿É¼ÇÃ¢¿¡¼­ º¯°æÇÏ´Â °ü°è·Î ¿©±â¿¡´Ù ³Ö¾úÀ½
+//		ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2006,22 +2006,22 @@ function OnPartyHasDismissed()
 	c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
 	c_handle.SetSelectedNum(GetOptionInt( "Game", "PartyLooting"));
 	class'UIAPI_CHECKBOX'.static.EnableWindow( "OptionWnd.LootingBox" );
-	//ÆÄÆ¼°¡ ÇØÁ¦,Å»Åð,Ãß¹æµÇ¸é ÀÚ½ÅÀÌ ¼³Á¤ÇÑ ·çÆÃ¹æ½ÄÀ¸·Î µ¹¾Æ°£´Ù. 
-	//ÆÄÆ¼Àåµµ ¸¶Âù°¡Áö(·çÆÃº¯°æ½Ã ÆÄÆ¼ÀåÀº ÀúÀåµÈ´Ù)
+	//ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,Å»ï¿½ï¿½,ï¿½ß¹ï¿½Ç¸ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½. 
+	//ï¿½ï¿½Æ¼ï¿½åµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½)
 }
 
 
-function OnBecamePartyMember(string a_Param) //ÆÄÆ¼¿øÀÌ µÊ
+function OnBecamePartyMember(string a_Param) //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 {
 	local int Lootingtype;
 	local ComboBoxHandle c_handle;
 	ParseInt(a_Param, "Lootingtype", Lootingtype);
 	c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
-	c_handle.SetSelectedNum(Lootingtype); //·çÆÃÅ¸ÀÔÀ» ÆÄÆ¼Àåµû¶ó°£´Ù. ÀúÀåÀº ÇÏÁö ¾Ê´Â´Ù
+	c_handle.SetSelectedNum(Lootingtype); //ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ó°£´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
 	class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.LootingBox" );
 }
 
-function OnBecamePartyMaster(string a_Param) //ÆÄÆ¼ÀåÀÌµÊ
+function OnBecamePartyMaster(string a_Param) //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ìµï¿½
 {
 	local int Lootingtype;
 	local ComboBoxHandle c_handle;
@@ -2031,16 +2031,16 @@ function OnBecamePartyMaster(string a_Param) //ÆÄÆ¼ÀåÀÌµÊ
 	class'UIAPI_CHECKBOX'.static.EnableWindow( "OptionWnd.LootingBox" );
 }
 
-function OnHandOverPartyMaster() //ÆÄÆ¼ÀåÀ» ¾çµµÇÔ
+function OnHandOverPartyMaster() //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½
 {
 	class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.LootingBox" );
 }
 
-function OnRecvPartyMaster()  //ÆÄÆ¼ÀåÀ» ¾çµµ¹ÞÀ½
+function OnRecvPartyMaster()  //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½ï¿½ï¿½ï¿½
 {
 	local ComboBoxHandle c_handle;
 	c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
-	SetOptionInt( "Game", "PartyLooting", c_handle.GetSelectedNum()); //¹æÀåÀÌ µÇ¸é ÇöÀç¹æ½ÄÀ» ÀúÀåÇÑ´Ù. ¿î¸íÀûÀ¸·Î
+	SetOptionInt( "Game", "PartyLooting", c_handle.GetSelectedNum()); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	class'UIAPI_CHECKBOX'.static.EnableWindow( "OptionWnd.LootingBox" );
 }
 
@@ -2083,7 +2083,7 @@ function bool IsRoomMaster()
 	Script = PartyWnd(GetScript("PartyWnd"));
 	return Script.m_AmIRoomMaster;
 }
-function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
+function OnPartyLootingHasModified(String a_Param) //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	local int IsSuccess;
 	local int LootingScheme;
@@ -2094,7 +2094,7 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 	local SystemMsgData SystemMsgCurrent;
 	///////////////////////////////////////
 
-	//·çÆÃ ÄÞº¸¹Ú½º º¯°æÀ» À§ÇØ
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local ComboBoxHandle c_handle;
 	/////////////////////////
 
@@ -2105,9 +2105,9 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 
 	ParseInt(a_Param, "IsSuccess", IsSuccess);
 	ParseInt(a_Param, "LootingScheme", LootingScheme);
-	//ÀÌ°÷¿¡ ½ºÅ©¸°¸Þ½ÃÁö ÄÚµå Ãß°¡. ¿É¼ÇÃ¢ ÆÄÆ¼·çÆÃ¹æ½Ä ÄÞº¸¹Ú½ºµµ ´Ù·ç¾î¾ßÇÔ
+	//ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½. ï¿½É¼ï¿½Ã¢ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	if(IsSuccess != 0) //¼º°øÀÌ±â¸¸ ÇÏ¸é partyMatchRoom ÀÇ ·çÆÃ¹æ½ÄÀº ¹«Á¶°Ç ¹Ù²ã¾ßÇÑ´Ù. //ÆÄÆ¼Ã¢ÀÇ ¹æÀåÅøÆÁµµº¯°æ
+	if(IsSuccess != 0) //ï¿½ï¿½ï¿½ï¿½ï¿½Ì±â¸¸ ï¿½Ï¸ï¿½ partyMatchRoom ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½Ñ´ï¿½. //ï¿½ï¿½Æ¼Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		
 		script.SetMasterTooltip(LootingScheme);
@@ -2117,27 +2117,27 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 	}
 	
 		
-	if(bPartyMaster || IsRoomMaster()) //ÀÚ½ÅÀÌ ÆÄÆ¼Àå È¤Àº ÆÄÆ¼¹æÀåÀÌ¶ó¸é
+	if(bPartyMaster || IsRoomMaster()) //ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 	{
 		AddSystemMessage(3136);
-		if(IsSuccess != 0) //º¯°æ ¼º°ø 
+		if(IsSuccess != 0) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 		{
-			SetOptionInt( "Game", "PartyLooting", LootingScheme ); //¹æÀå¸¸ ÀÌ ¹æ¹ýÀ¸·Î ·çÆÃ¼³Á¤À» ÀúÀåÇÑ´Ù.(ÀÚ±â°¡ ±ÇÀ¯ÇÑ °Å´Ï±î)
+			SetOptionInt( "Game", "PartyLooting", LootingScheme ); //ï¿½ï¿½ï¿½å¸¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.(ï¿½Ú±â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å´Ï±ï¿½)
 			//do not change. Preserve combobox's current Item.
 		}
-		else //º¯°æ½ÇÆÐ ÄÞº¸¹Ú½º ¿ø·¡·Î º¹±Í
+		else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			c_handle.SetSelectedNum(GetOptionInt( "Game", "PartyLooting"));			
 		}
-		class'UIAPI_CHECKBOX'.static.EnableWindow( "OptionWnd.LootingBox" ); //·çÆÃ¹Ú½º È°¼ºÈ­
+		class'UIAPI_CHECKBOX'.static.EnableWindow( "OptionWnd.LootingBox" ); //ï¿½ï¿½ï¿½Ã¹Ú½ï¿½ È°ï¿½ï¿½È­
 	}
 		
 
 	if(IsSuccess == 0) //fail
 	{
-		//debug("½ÇÆÐÇßÀ½");
+		//debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
-	else if(IsSuccess == 1)//success ÆÄÆ¼¿øÀÏ °æ¿ì, ÄÞº¸¹Ú½º¸¸ ¹Ù²ãÁÖ°í ÀúÀåÀº ÇÏÁö¾Ê´Â´Ù
+	else if(IsSuccess == 1)//success ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê´Â´ï¿½
 	{
 		Schemestr = getLootingString(LootingScheme);
 		GetSystemMsgInfo( 3138, SystemMsgCurrent);
@@ -2155,10 +2155,10 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 		ExecuteEvent(EV_ShowScreenMessage, strParam);
 		
 		PlaySound(SystemMsgCurrent.Sound);
-		c_handle.SetSelectedNum(LootingScheme);	 //ÀúÀåÀº ÇÏÁö ¾Ê´Â´Ù.
+		c_handle.SetSelectedNum(LootingScheme);	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 		
 	}
-	else if(IsSuccess == 2)//success ±×³É ¹æ¾È¿¡ ÀÖ´Â »ç¶÷ÀÏ °æ¿ì. ÄÞº¸¹Ú½º¸¸ ¹Ù²ãÁÖ°í ÀúÀåÀº ÇÏÁö¾Ê´Â´Ù
+	else if(IsSuccess == 2)//success ï¿½×³ï¿½ ï¿½ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê´Â´ï¿½
 	{
 		Schemestr = getLootingString(LootingScheme);
 		GetSystemMsgInfo( 3138, SystemMsgCurrent);
@@ -2176,12 +2176,12 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 		ExecuteEvent(EV_ShowScreenMessage, strParam);
 		
 		PlaySound(SystemMsgCurrent.Sound);
-		c_handle.SetSelectedNum(LootingScheme);	 //ÀúÀåÀº ÇÏÁö ¾Ê´Â´Ù.
+		c_handle.SetSelectedNum(LootingScheme);	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	}
 	
 }
 
-// function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
+// function OnPartyLootingHasModified(String a_Param) //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½
 // {
 // 	local int IsSuccess;
 // 	local int LootingScheme;
@@ -2192,7 +2192,7 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 	local SystemMsgData SystemMsgCurrent;
 // 	///////////////////////////////////////
 // 
-// 	//·çÆÃ ÄÞº¸¹Ú½º º¯°æÀ» À§ÇØ
+// 	//ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 	local PartyWnd script;
 // 	local ComboBoxHandle c_handle;
 // 	/////////////////////////
@@ -2200,17 +2200,17 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 	local TextBoxHandle t_handle;
 // 
 // 	
-// 	NowLooting = false; //·çÆÃº¯°æÀÌÁ¾·á
-// 	RefreshLootingBox(); //±ÇÇÑ¿¡ µû¶ó ÄÞº¸¹Ú½º¸¦ enable/disable ÇÑ´Ù
+// 	NowLooting = false; //ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 	RefreshLootingBox(); //ï¿½ï¿½ï¿½Ñ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ enable/disable ï¿½Ñ´ï¿½
 // 
 // 	script = PartyWnd(GetScript("PartyWnd"));
 // 	c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
 // 
 // 	ParseInt(a_Param, "IsSuccess", IsSuccess);
 // 	ParseInt(a_Param, "LootingScheme", LootingScheme);
-// 	//ÀÌ°÷¿¡ ½ºÅ©¸°¸Þ½ÃÁö ÄÚµå Ãß°¡. ¿É¼ÇÃ¢ ÆÄÆ¼·çÆÃ¹æ½Ä ÄÞº¸¹Ú½ºµµ ´Ù·ç¾î¾ßÇÔ
+// 	//ï¿½Ì°ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½. ï¿½É¼ï¿½Ã¢ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ï¿½ï¿½ï¿½ï¿½
 // 
-// 	if(IsSuccess != 0) //¼º°øÀÌ±â¸¸ ÇÏ¸é partyMatchRoom ÀÇ ·çÆÃ¹æ½ÄÀº ¹«Á¶°Ç ¹Ù²ã¾ßÇÑ´Ù.
+// 	if(IsSuccess != 0) //ï¿½ï¿½ï¿½ï¿½ï¿½Ì±â¸¸ ï¿½Ï¸ï¿½ partyMatchRoom ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½Ñ´ï¿½.
 // 	{
 // 		Schemestr = getLootingString(LootingScheme);
 // 		t_handle = GetTextBoxHandle("PartyMatchRoomWnd.LootingMethod");
@@ -2218,18 +2218,18 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 	}
 // 	
 // 		
-// 	if(script.AmILeader()) //ÀÚ½ÅÀÌ ÆÄÆ¼Àå È¤Àº ÆÄÆ¼¹æÀåÀÌ¶ó¸é
+// 	if(script.AmILeader()) //ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 // 	{
 // 		AddSystemMessage(3136);
-// 		if(IsSuccess != 0) //º¯°æ ¼º°ø 
+// 		if(IsSuccess != 0) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 // 		{
 // 			debug("success now type is");
 // 			debug(string(LootingScheme));
-// 			SetOptionInt( "Game", "PartyLooting", LootingScheme ); //¹æÀå¸¸ ÀÌ ¹æ¹ýÀ¸·Î ·çÆÃ¼³Á¤À» ÀúÀåÇÑ´Ù.(ÀÚ±â°¡ ±ÇÀ¯ÇÑ °Å´Ï±î)
+// 			SetOptionInt( "Game", "PartyLooting", LootingScheme ); //ï¿½ï¿½ï¿½å¸¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.(ï¿½Ú±â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å´Ï±ï¿½)
 // //			Lootingtype = LootingScheme;
 // 			//do not change. Preserve combobox's current Item.
 // 		}
-// 		else //º¯°æ½ÇÆÐ ÄÞº¸¹Ú½º ¿ø·¡·Î º¹±Í
+// 		else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // 		{
 // 			c_handle.SetSelectedNum(GetOptionInt( "Game", "PartyLooting"));			
 // 		}
@@ -2238,9 +2238,9 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 
 // 	if(IsSuccess == 0) //fail
 // 	{
-// 		//debug("½ÇÆÐÇßÀ½");
+// 		//debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 // 	}
-// 	else if(IsSuccess == 1)//success ÆÄÆ¼¿øÀÏ °æ¿ì, ÄÞº¸¹Ú½º¸¸ ¹Ù²ãÁÖ°í ÀúÀåÀº ÇÏÁö¾Ê´Â´Ù
+// 	else if(IsSuccess == 1)//success ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê´Â´ï¿½
 // 	{
 // 		Schemestr = getLootingString(LootingScheme);
 // 		GetSystemMsgInfo( 3138, SystemMsgCurrent);
@@ -2258,10 +2258,10 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 		ExecuteEvent(EV_ShowScreenMessage, strParam);
 // 		
 // 		PlaySound(SystemMsgCurrent.Sound);
-// 		c_handle.SetSelectedNum(LootingScheme);	 //ÀúÀåÀº ÇÏÁö ¾Ê´Â´Ù.
+// 		c_handle.SetSelectedNum(LootingScheme);	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 // 		
 // 	}
-// 	else if(IsSuccess == 2)//success ±×³É ¹æ¾È¿¡ ÀÖ´Â »ç¶÷ÀÏ °æ¿ì. ÄÞº¸¹Ú½º¸¸ ¹Ù²ãÁÖ°í ÀúÀåÀº ÇÏÁö¾Ê´Â´Ù
+// 	else if(IsSuccess == 2)//success ï¿½×³ï¿½ ï¿½ï¿½È¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ï¿½Þºï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê´Â´ï¿½
 // 	{
 // 		Schemestr = getLootingString(LootingScheme);
 // 		GetSystemMsgInfo( 3138, SystemMsgCurrent);
@@ -2279,7 +2279,7 @@ function OnPartyLootingHasModified(String a_Param) //ÆÄÆ¼·çÆÃÀÌ º¯°æµÇ¾úÀ»¶§
 // 		ExecuteEvent(EV_ShowScreenMessage, strParam);
 // 		
 // 		PlaySound(SystemMsgCurrent.Sound);
-// 		c_handle.SetSelectedNum(LootingScheme);	 //ÀúÀåÀº ÇÏÁö ¾Ê´Â´Ù.
+// 		c_handle.SetSelectedNum(LootingScheme);	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 // 	}
 // 	
 // }
@@ -2292,24 +2292,24 @@ function OnAskPartyLootingModify(String a_Param)
 	/////////////////////////////////////////////////
 	local string Schemestr;
 
-	// ´ÙÀÌ¾ó ·Î±× ¹Ú½º¿¡¼­ ¿¹, ¾Æ´Ï¿À °¡ ³ª¿Àµµ·Ï ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Î±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½Æ´Ï¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	dScript.SetButtonName( 184, 185 );
 	
 	DialogSetID( PARTY_MODIFY_REQUEST );
 	DialogSetParamInt64( IntToInt64(10*1000) );			// 5 seconds
-	DialogSetDefaultCancle(); // ¿£ÅÍ¸¦ Ä¡°Å³ª Å¸ÀÓ¾Æ¿ô¹ß»ý½Ã cancle·Î ÆÇ´Ü
+	DialogSetDefaultCancle(); // ï¿½ï¿½ï¿½Í¸ï¿½ Ä¡ï¿½Å³ï¿½ Å¸ï¿½Ó¾Æ¿ï¿½ï¿½ß»ï¿½ï¿½ï¿½ cancleï¿½ï¿½ ï¿½Ç´ï¿½
 	ParseString(a_Param, "LeaderName", LeaderName);
 	ParseInt(a_Param, "LootingScheme", LootingScheme);
 	Schemestr = getLootingString(LootingScheme);
 	DialogShow(DIALOG_Modalless, DIALOG_Progress, MakeFullSystemMsg(GetSystemMessage(3134),Schemestr));
 }
-function HandleDialogOK() //ÆÄÆ¼·çÆÃº¯°æ µ¿ÀÇÃ¢ 
+function HandleDialogOK() //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ 
 {
 	if( DialogIsMine() )
 	{
 		if( DialogGetID() == PARTY_MODIFY_REQUEST )
 		{
-			RequestPartyLootingModifyAgreement(1); //µ¿ÀÇ ÇÔ
+			RequestPartyLootingModifyAgreement(1); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		}
 		else if( DialogGetID() == OPTION_CHANGE )
 		{			
@@ -2319,16 +2319,16 @@ function HandleDialogOK() //ÆÄÆ¼·çÆÃº¯°æ µ¿ÀÇÃ¢
 	
 }
 
-function HandleDialogCancel() //ÆÄÆ¼·çÆÃº¯°æ µ¿ÀÇÃ¢ 
+function HandleDialogCancel() //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ 
 {
-	// È®ÀÎ, Ãë¼Ò ·Î º¹±¸ 
+	// È®ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	dScript.SetButtonName( 1337, 1342 );
 
 	if( DialogIsMine() )
 	{
 		if( DialogGetID() == PARTY_MODIFY_REQUEST )
 		{
-			RequestPartyLootingModifyAgreement(0); //°ÅÀýÇÔ È¤Àº Å¸ÀÓ¾Æ¿ô
+			RequestPartyLootingModifyAgreement(0); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¤ï¿½ï¿½ Å¸ï¿½Ó¾Æ¿ï¿½
 		}
 	}
 }
@@ -2347,15 +2347,15 @@ function OnComboBoxItemSelected( string sName, int index )
 		
 		script = PartyWnd(GetScript("PartyWnd"));
 		c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
-		if(bPartyMaster || (IsRoomMaster() && !bPartyMember)) //ÆÄÆ¼¹æÀåÀÎµ¥ ÆÄÆ¼ÀåÀ» ¾çµµÇÏ´Â °æ¿ì°¡ ÀÖ¾î¼­
+		if(bPartyMaster || (IsRoomMaster() && !bPartyMember)) //ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½çµµï¿½Ï´ï¿½ ï¿½ï¿½ì°¡ ï¿½Ö¾î¼­
 		{
-			//ÇöÀç ·çÆÃ°ú °°Àº°É ¶Ç¼±ÅÃÇÏ¸é ¹«½Ã. 
-			//ÀúÀåµÈ ¼³Á¤ÀÌ ÇöÀç ¼³Á¤ÀÌ¶û ÀÏÄ¡ÇÏ´Â ÀÌÀ¯´Â ÆÄÆ¼¸¦ ÃÊ´ëÇÒ¶§ ÀúÀåµÈ ¼³Á¤À» »ç¿ëÇÏ°í, 
-			//·çÆÃÀÌ º¯°æµÇµµ ¼³Á¤À» ÀúÀåÇÏ±â ¶§¹®ÀÌ´Ù.
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½. 
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, 
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 			if(GetOptionInt( "Game", "PartyLooting") == c_handle.GetSelectedNum()) 
 				break;
 			class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.LootingBox" );
-			RequestPartyLootingModify(c_handle.GetSelectedNum()); // ·çÆÃº¯°æÀ» ½ÅÃ»ÇÑ´Ù.
+			RequestPartyLootingModify(c_handle.GetSelectedNum()); // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 		}
 		break;
 	case "ResBox":
@@ -2380,19 +2380,19 @@ function OnComboBoxItemSelected( string sName, int index )
 // 		
 // 		script = PartyWnd(GetScript("PartyWnd"));
 // 		c_handle = GetComboBoxHandle("OptionWnd.LootingBox");
-// 		if(script.AmILeader()) //ÀÚ½ÅÀÌ ÆÄÆ¼Àå È¤Àº ÆÄÆ¼¹æÀåÀÌ¶ó¸é
+// 		if(script.AmILeader()) //ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 // 		{
-// 			//ÆÄÆ¼·çÆÃ º¯°æÁß ÀÌ¶ó´Â ÇÃ·¡±×¸¦ ¼³Á¤ÇÑ´Ù.
+// 			//ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¶ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 // 			NowLooting = true;
 // 			
-// 			//ÇöÀç ·çÆÃ°ú °°Àº°É ¶Ç¼±ÅÃÇÏ¸é ¹«½Ã. 
-// 			//ÀúÀåµÈ ¼³Á¤ÀÌ ÇöÀç ¼³Á¤ÀÌ¶û ÀÏÄ¡ÇÏ´Â ÀÌÀ¯´Â ÆÄÆ¼¸¦ ÃÊ´ëÇÒ¶§ ÀúÀåµÈ ¼³Á¤À» »ç¿ëÇÏ°í, 
-// 			//·çÆÃÀÌ º¯°æµÇµµ ¼³Á¤À» ÀúÀåÇÏ±â ¶§¹®ÀÌ´Ù.
+// 			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½. 
+// 			//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, 
+// 			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 // 			if(GetOptionInt( "Game", "PartyLooting") == c_handle.GetSelectedNum()) 
 // 				break;
 // 			
-// 			RefreshLootingBox(); //NowLootingÀ» true·Î ÇßÀ¸¹Ç·Î disableµÈ´Ù. ·çÆÃÀÌ Á¾·áµÇ¸é NowLootingÀ» Ç®¾îÁÖÀÚ
-// 			RequestPartyLootingModify(c_handle.GetSelectedNum()); // ·çÆÃº¯°æÀ» ½ÅÃ»ÇÑ´Ù.
+// 			RefreshLootingBox(); //NowLootingï¿½ï¿½ trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ disableï¿½È´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ NowLootingï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 			RequestPartyLootingModify(c_handle.GetSelectedNum()); // ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 // 
 // 			class'UIAPI_CHECKBOX'.static.DisableWindow( "OptionWnd.LootingBox" );
 // 		}
@@ -2411,10 +2411,10 @@ function OnComboBoxItemSelected( string sName, int index )
 // 	}
 // }
 
-////////////////////ÆÄÆ¼·çÆÃ ÄÚµå Á¾·á/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// ½½¶óÀÌ´õ ÄÁÆ®·Ñ ÇÚµé·¯ - lancelot 2006. 6. 13.
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Úµé·¯ - lancelot 2006. 6. 13.
 function OnModifyCurrentTickSliderCtrl(string strID, int iCurrentTick)
 {
 	local float fVolume;
@@ -2425,7 +2425,7 @@ function OnModifyCurrentTickSliderCtrl(string strID, int iCurrentTick)
 		SetOptionFloat("Audio", "SoundVolume", fVolume);
 		break;
 	case "MusicVolumeSliderCtrl" :
-		if(fVolume==0.0f)	// ½½¶óÀÌ´õ ¹Ù¸¦ ¿òÁ÷ÀÌ´Â µµÁß¿¡´Â À½¾ÇÀÌ ²¨ÁöÁö ¾Ê°Ô ÇÏ±â À§ÇØ¼­
+		if(fVolume==0.0f)	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½
 			fVolume=0.005f;
 		SetOptionFloat("Audio", "MusicVolume", fVolume);
 		break;
@@ -2496,7 +2496,7 @@ function OnTimer(int TimerID)
 	if (TimerID==1)	
 	{
 		class'UIAPI_WINDOW'.static.KillUITimer("OptionWnd", 1 );
-		//branch : ¿Ö ¾Æ·¡¶û ´Ù¸¦±î... TTP 33257
+		//branch : ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½... TTP 33257
 		//StatusWnd.ShowWindow();
 		//end of branch
 		StatusWnd.MoveTo(g_CurrentMaxWidth-170, g_CurrentMaxHeight-170);
