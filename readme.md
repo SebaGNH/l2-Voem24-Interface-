@@ -11,7 +11,7 @@
         Cambio msje google en línea "1623"
 
 
-#03 Cambio tamaño buff de 32 a 18
+#03 Cambio tamaño buff interface de 32 a 18
     FlexOptionWnd.uc
 "321"   	if (temp == 18)
 "556"  		s_handle.SetIconSize(18);
