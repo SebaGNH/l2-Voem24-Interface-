@@ -318,7 +318,7 @@ function LoadINISets()
 		c_enableAutoSouls.SetCheck(false);
 	}
 	GetINIInt("Buff Control", "Size", temp, "PatchSettings");
-	if (temp == 32)
+	if (temp == 18)
 	{
 		s_handle.SetIconSize(temp);
 		c_enableBigBuff.SetCheck(true);
@@ -563,8 +563,8 @@ function OnClickCheckBox(string strID)
 		case "enableBigBuff":
 			if (c_enableBigBuff.IsChecked())
 			{
-				s_handle.SetIconSize(32);
-				SetINIInt("Buff Control", "Size", 32, "PatchSettings");
+				s_handle.SetIconSize(18);
+				SetINIInt("Buff Control", "Size", 18, "PatchSettings");
 			}
 			else
 			{
