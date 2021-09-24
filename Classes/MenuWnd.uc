@@ -37,11 +37,11 @@ function OnLoad()
 	}
 	
 	Info=GetTextBoxHandle("MenuWnd.txtPatchInfo");
-	Gray.R = 145;
-	Gray.G = 145;
-	Gray.B = 145;
+	Gray.R = 00;
+	Gray.G = 255;
+	Gray.B = 00;
 	
-	Info.SetText("Patch by DEADZ - Tom's edit");
+	Info.SetText("ConstructoMental");
 	Info.SetTextColor(Gray);
 }
 
@@ -117,7 +117,7 @@ function OnTimer(int TimerID)
 	//~ debug ("TimerID" @ TimerID);
 	if (TimerID==TimerValue1)	
 	{	
-		//~ debug("À©µµ¿ì ÁöÀ½1");
+		//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1");
 		class'UIAPI_WINDOW'.static.KillUITimer("MenuWnd", TimerValue1);
 		Me2.SetAlpha(255, 0.4f);
 		Me1.SetAlpha(0);
@@ -127,13 +127,13 @@ function OnTimer(int TimerID)
 	if(TimerID==TimerValue3)	
 	{	
 		class'UIAPI_WINDOW'.static.KillUITimer("MenuWnd", TimerValue3);
-			//~ debug("À©µµ¿ì ÁöÀ½");
+			//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		Me1.HideWindow();
 	}
 	
 	if (TimerID==TimerValue2)	
 	{	
-		//~ debug("À©µµ¿ì ÁöÀ½10");
+		//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½10");
 		class'UIAPI_WINDOW'.static.KillUITimer("MenuWnd", TimerValue2);
 		Me1.SetAlpha(255, 0.4f);
 		Me2.SetAlpha(0,);
@@ -143,7 +143,7 @@ function OnTimer(int TimerID)
 	if(TimerID==TimerValue4)	
 	{	
 		class'UIAPI_WINDOW'.static.KillUITimer("MenuWnd", TimerValue4);
-		//~ debug("À©µµ¿ì ÁöÀ½¤¼¤¼¤¼");
+		//~ debug("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		Me2.HideWindow();
 	}
 }
