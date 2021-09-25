@@ -9,7 +9,7 @@ var TextBoxHandle m_hTbMacro;
 
 var WindowHandle ProductInventoryWnd;
 
-var int IsPeaceZone;		//ÇöÀç Áö¿ª PeaceZoneÀÎ°¡
+var int IsPeaceZone;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ PeaceZoneï¿½Î°ï¿½
 
 const DIALOGID_Gohome = 0;
 
@@ -75,7 +75,7 @@ function OnClickButton( string strID )
 	case "btnOption":
 		HandleShowOptionWnd();
 		break;
-	//È¨ÆäÀÌÁö ¸µÅ©(10.1.18 ¹®¼±ÁØ Ãß°¡)
+	//È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©(10.1.18 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½)
 	case "btnHomepage":
 		linkHomePage();
 		break;
@@ -129,7 +129,7 @@ function OnEvent(int Event_ID, String param)
 	}
 }
 
-//»óÇ° ÀÎº¥Åä¸® ¿­±â
+//ï¿½ï¿½Ç° ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 function HandleShowProductInventory()
 {
 	if( ProductInventoryWnd.IsShowWindow() )
@@ -147,7 +147,7 @@ function HandleShowProductInventory()
 }
 
 
-//È¨ÆäÀÌÁö ¸µÅ©(10.1.18 ¹®¼±ÁØ Ãß°¡)
+//È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©(10.1.18 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½)
 function HandleDialogOK()
 {
 	if( !DialogIsMine() )
@@ -195,7 +195,7 @@ function HandleShowBoardWnd()
 
 function HandleShowHelpHtmlWnd()
 {
-	local  AgeWnd script1;	// µî±ÞÇ¥½Ã ½ºÅ©¸³Æ® °¡Á®¿À±â
+	local  AgeWnd script1;	// ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	local string strParam;
 	ParamAdd(strParam, "FilePath", "..\\L2text\\help.htm");
@@ -203,7 +203,7 @@ function HandleShowHelpHtmlWnd()
 	
 	script1 = AgeWnd( GetScript("AgeWnd") );
 	
-	if(script1.bBlock == false)	script1.startAge();	//µî±ÞÇ¥½Ã¸¦ ÄÑÁØ´Ù. 
+	if(script1.bBlock == false)	script1.startAge();	//ï¿½ï¿½ï¿½Ç¥ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½. 
 }
 
 function HandleShowMacroListWnd()
@@ -262,7 +262,7 @@ function HandleShowOptionWnd()
 
 function SetMenuString()
 {
-	//´ÜÃàÅ° ºÙ¿©ÁÖ±â
+	//ï¿½ï¿½ï¿½ï¿½Å° ï¿½Ù¿ï¿½ï¿½Ö±ï¿½
 	m_hTbBBS.SetText(GetSystemString(387) $ "(Alt+B)");
 	m_hTbMacro.SetText(GetSystemString(711) $ "(Alt+R)");
 }
